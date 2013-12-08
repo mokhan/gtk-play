@@ -1,4 +1,6 @@
-class ApplicationShell < Gtk::Window
+require "window"
+
+class ApplicationShell < Window
   def initialize
     super
   end
