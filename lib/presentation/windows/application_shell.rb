@@ -1,6 +1,3 @@
-require 'gtk2'
-
-
 class ApplicationShell < Gtk::Window
   def initialize
     super
@@ -13,7 +10,3 @@ class ApplicationShell < Gtk::Window
     show
   end
 end
-
-Gtk.init
-window = ApplicationShell.new
-Gtk.main
