@@ -5,10 +5,12 @@ describe EventAggregator do
 
   context "when publishing an event" do
     let(:hello_subscriber) { double("hello_subscriber", hello: true) }
+    let(:other_hello_subscriber) { double("other_hello_subscriber", hello: true) }
     let(:goodbye_subscriber) { double("goodbye_subscriber", hello: false) }
 
     before :each do
       sut.subscribe(:hello, hello_subscriber)
+      sut.subscribe(:hello, other_hello_subscriber)
       sut.subscribe(:goodbye, goodbye_subscriber)
 
       sut.publish(:hello, 'mo', 'kha')
@@ -16,6 +18,7 @@ describe EventAggregator do
 
     it "notifies all subscribers of that event" do
       hello_subscriber.should have_received(:hello).with('mo', 'kha')
+      other_hello_subscriber.should have_received(:hello).with('mo', 'kha')
     end
 
     it "does not notify subscribers of other events" do
