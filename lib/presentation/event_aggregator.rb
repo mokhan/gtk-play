@@ -5,11 +5,8 @@ class EventAggregator
 
   def publish(event, *args)
     subscribers = subscribers_for(event)
-    puts "all #{@subscribers}"
-    puts "found #{subscribers}"
     subscribers.each do |subscriber|
-      puts "publishing #{event} to #{subscriber}"
-      subscriber.public_send(event, args)
+      subscriber.public_send(event, *args)
     end
   end
 
