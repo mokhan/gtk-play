@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'bundler'
 Bundler.require(:default)
-require_relative 'utility/command.rb'
 
 Dir["lib/**/*.rb"].each do |file|
   $:.unshift(File.dirname(file)) unless $:.include?(File.dirname(file))

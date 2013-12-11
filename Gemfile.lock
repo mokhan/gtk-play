@@ -14,6 +14,7 @@ GEM
       atk (= 2.0.2)
       gdk_pixbuf2 (= 2.0.2)
       pango (= 2.0.2)
+    nasty (0.0.1386739849)
     pango (2.0.2)
       cairo (>= 1.12.5)
       glib2 (= 2.0.2)
@@ -33,5 +34,6 @@ PLATFORMS
 
 DEPENDENCIES
   gtk2
+  nasty
   rspec
   spank

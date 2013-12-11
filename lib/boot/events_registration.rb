@@ -1,5 +1,5 @@
 class EventsRegistration
-  extend Command
+  extend Nasty::Command
 
   def self.run(container)
     register_items_with(container.resolve(:event_aggregator))

@@ -1,5 +1,5 @@
 class ContainerConfiguration
-  extend Command
+  extend Nasty::Command
 
   def self.run(container)
     container.register(:event_aggregator) { EventAggregator.new }.as_singleton
