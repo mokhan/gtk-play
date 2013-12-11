@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-$:.unshift(File.join(File.dirname(__FILE__), '../lib'))
-require 'application'
+require_relative '../lib/application.rb'
 
 Application.new.run(ARGV)

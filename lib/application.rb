@@ -1,8 +1,9 @@
-Dir["**/**/*.rb"].each { |file| $:.unshift(File.dirname(file)) }
+require 'rubygems'
 
-require 'application_shell_presenter'
-require 'application_shell'
-require 'event_aggregator'
+Dir["lib/**/*.rb"].each do |file|
+  $:.unshift(File.dirname(file)) unless $:.include?(File.dirname(file))
+  require File.basename(file)
+end
 
 class ShutdownCommand
   def halt(*message)
