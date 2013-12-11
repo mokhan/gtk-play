@@ -5,12 +5,6 @@ Dir["lib/**/*.rb"].each do |file|
   require File.basename(file)
 end
 
-class ShutdownCommand
-  def halt(*message)
-    Gtk.main_quit
-  end
-end
-
 class Application
   def run(arguments)
     Gtk.init
