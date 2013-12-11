@@ -10,10 +10,24 @@ end
 class Application
   def run(arguments)
     Gtk.init
-    event_aggregator = EventAggregator.new
-    event_aggregator.subscribe(:halt, ShutdownCommand.new)
-    presenter = ApplicationShellPresenter.new(ApplicationShell.new, event_aggregator)
-    presenter.present
+    container = bootstrap_container
+    bootstrap_events_with(container.resolve(:event_aggregator))
+    Spank::IOC.resolve(:shell_presenter).present
     Gtk.main
+  end
+
+  private
+
+  def bootstrap_container
+    container = Spank::Container.new
+    container.register(:event_aggregator) { EventAggregator.new }.as_singleton
+    container.register(:shell) { ApplicationShell.new }.as_singleton
+    container.register(:shell_presenter) { |x| x.build(ApplicationShellPresenter) }
+    Spank::IOC.bind_to(container)
+    container
+  end
+
+  def bootstrap_events_with(event_aggregator)
+    event_aggregator.subscribe(:halt, ShutdownCommand.new)
   end
 end

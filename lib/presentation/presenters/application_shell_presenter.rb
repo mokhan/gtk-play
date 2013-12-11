@@ -1,6 +1,6 @@
 class ApplicationShellPresenter
-  def initialize(view, event_aggregator)
-    @view = view
+  def initialize(shell, event_aggregator)
+    @view = shell
     @event_aggregator = event_aggregator
   end
 
