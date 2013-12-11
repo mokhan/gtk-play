@@ -4,8 +4,8 @@ class Window < Gtk::Window
   end
 
   def on(event, &command)
-    self.signal_connect(event.to_s) do
-      command.call(self)
+    self.signal_connect(event.to_s) do |*args|
+      command.call(*args)
     end
   end
 end
