@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler'
 Bundler.require(:default)
+require_relative 'utility/command.rb'
 
 Dir["lib/**/*.rb"].each do |file|
   $:.unshift(File.dirname(file)) unless $:.include?(File.dirname(file))
@@ -11,8 +12,8 @@ class Application
   def run(arguments)
     Gtk.init
     container = Spank::Container.new
-    ContainerConfiguration.run(container)
-    EventsRegistration.run(container)
+    ContainerConfiguration.then(EventsRegistration).run(container)
+
     container.resolve(:shell_presenter).present
     Gtk.main
   end

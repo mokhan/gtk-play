@@ -1,4 +1,6 @@
 class ContainerConfiguration
+  extend Command
+
   def self.run(container)
     container.register(:event_aggregator) { EventAggregator.new }.as_singleton
     container.register(:shell) { ApplicationShell.new }.as_singleton

@@ -1,4 +1,6 @@
 class EventsRegistration
+  extend Command
+
   def self.run(container)
     register_items_with(container.resolve(:event_aggregator))
   end
