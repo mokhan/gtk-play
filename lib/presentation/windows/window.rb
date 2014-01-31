@@ -1,11 +1,10 @@
+require 'signal'
+
 class Window < Gtk::Window
+  include Signal
+
   def initialize
     super
   end
-
-  def on(event, &command)
-    self.signal_connect(event.to_s) do |*args|
-      command.call(*args)
-    end
-  end
 end
+
