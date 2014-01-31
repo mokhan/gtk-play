@@ -8,6 +8,7 @@ class ApplicationShellPresenter
     @view.set_title("Hello World")
     @view.bind_to(self)
     Build.menu_bar.with(File.menu(@event_aggregator)).add_to(@view)
+    @view.display("leonardo.jpg")
     @view.show_all
   end
 
