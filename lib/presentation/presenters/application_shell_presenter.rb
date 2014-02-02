@@ -12,6 +12,14 @@ class ApplicationShellPresenter
     @view.show_all
   end
 
+  def correct_clicked
+    puts "clicked on correct"
+  end
+
+  def incorrect_clicked
+    puts "clicked on incorrect"
+  end
+
   def shutdown
     Publish.event(:halt)
   end

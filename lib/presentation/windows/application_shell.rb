@@ -21,11 +21,17 @@ class ApplicationShell < Window
 
     right_button = Gtk::Button.new("Right")
     right_button.set_size_request(50, 30)
+    right_button.signal_connect('clicked') do
+      presenter.correct_clicked
+    end
     table.attach(right_button, 3, 4, 1, 2, Gtk::FILL, Gtk::SHRINK, 1, 1)
 
     valign = Gtk::Alignment.new 0, 0, 0, 0
     wrong_button = Gtk::Button.new("Wrong")
     wrong_button.set_size_request(70, 30)
+    wrong_button.signal_connect('clicked') do
+      presenter.incorrect_clicked
+    end
     valign.add(wrong_button)
     table.set_row_spacing(1, 3)
     table.attach(valign, 3, 4, 2, 3, Gtk::FILL, Gtk::FILL | Gtk::EXPAND, 1, 1)
