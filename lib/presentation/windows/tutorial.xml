@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<glade-interface>
-  <requires lib="gtk+" version="2.24"/>
+<?xml version="1.0"?>
+<interface>
   <!-- interface-naming-policy project-wide -->
   <object class="GtkWindow" id="window">
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">GTK+ Text Editor</property>
-    <signal name="destroy" handler="on_window_destroy" swapped="no"/>
+    <signal handler="on_window_destroy" name="destroy" swapped="no"/>
     <child>
       <object class="GtkVBox" id="vbox1">
         <property name="visible">True</property>
@@ -197,4 +196,4 @@
       </object>
     </child>
   </object>
-</glade-interface>
+</interface>
