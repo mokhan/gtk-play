@@ -13,8 +13,7 @@ class Application
 
     container = Spank::Container.new
     ContainerConfiguration.then(EventsRegistration).run(container)
-    presenter = container.resolve(:shell_presenter)
-    presenter.present
+    container.resolve(:shell_presenter).present
     Gtk.main
   end
 end

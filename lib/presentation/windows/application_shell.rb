@@ -1,26 +1,14 @@
-require "window"
-
-#class ApplicationShell < Window
-  #def initialize
-    #super
-    #modify_bg(Gtk::STATE_NORMAL, Gdk::Color.new(6400, 6400, 6440))
-    #self.maximize
-  #end
-
-  #def bind_to(presenter)
-    #self.on(:destroy) do
-      #presenter.shutdown
-    #end
-  #end
-#end
-
 class ApplicationShell
-  def initialize
+  attr_reader :window, :menu_bar
+
+  def initialize(event_aggregator)
     builder = Gtk::Builder.new
-    file = File.join(File.dirname(__FILE__), 'tutorial.xml')
+    file = File.join(File.dirname(__FILE__), 'shell.xml')
     builder.add_from_file(file)
     builder.connect_signals { |signal| Proc.new { publish(signal) } }
     @window = builder.get_object('window')
+    @menu_bar = builder.get_object('menubar')
+    @event_aggregator = event_aggregator
   end
 
   def set_title(title)
@@ -33,6 +21,7 @@ class ApplicationShell
 
   def bind_to(presenter)
     @presenter = presenter
+    Build.menu_bar.with(File.menu(@event_aggregator)).add_to(self)
   end
 
   def publish(signal)
