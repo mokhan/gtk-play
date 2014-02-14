@@ -1,4 +1,3 @@
-
 class StockService
   def initialize(http_gateway = HttpGateway.new)
     @http_gateway = http_gateway
