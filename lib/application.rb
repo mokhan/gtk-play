@@ -10,10 +10,11 @@ end
 class Application
   def run(arguments)
     Gtk.init
+
     container = Spank::Container.new
     ContainerConfiguration.then(EventsRegistration).run(container)
-
-    container.resolve(:shell_presenter).present
+    presenter = container.resolve(:shell_presenter)
+    presenter.present
     Gtk.main
   end
 end
