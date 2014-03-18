@@ -1,13 +1,8 @@
 class ApplicationShell
   attr_reader :window, :menu_bar
+  attr_accessor :builder
 
   def initialize(event_aggregator)
-    builder = Gtk::Builder.new
-    file = File.join(File.dirname(__FILE__), 'shell.xml')
-    builder.add_from_file(file)
-    builder.connect_signals { |signal| Proc.new { publish(signal) } }
-    @window = builder.get_object('window')
-    @menu_bar = builder.get_object('menubar')
     @event_aggregator = event_aggregator
   end
 
@@ -21,10 +16,8 @@ class ApplicationShell
 
   def bind_to(presenter)
     @presenter = presenter
+    @window = builder.get_object('window')
+    @menu_bar = builder.get_object('menubar')
     Build.menu_bar.with(File.menu(@event_aggregator)).add_to(self)
-  end
-
-  def publish(signal)
-    @presenter.public_send(signal)
   end
 end

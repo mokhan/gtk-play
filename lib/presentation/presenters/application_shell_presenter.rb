@@ -1,4 +1,6 @@
 class ApplicationShellPresenter
+  attr_reader :view
+
   def initialize(shell, event_aggregator)
     @view = shell
     @event_aggregator = event_aggregator
@@ -6,7 +8,6 @@ class ApplicationShellPresenter
 
   def present
     @view.set_title("Hello World")
-    @view.bind_to(self)
     @view.show_all
   end
 
