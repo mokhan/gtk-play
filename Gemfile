@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem 'gtk2'
+gem 'gtk3'
 gem 'spank'
 gem 'nasty'
 

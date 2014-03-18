@@ -1,24 +1,35 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    atk (2.0.2)
-      glib2 (= 2.0.2)
-    cairo (1.12.6)
+    atk (2.2.0)
+      glib2 (= 2.2.0)
+    cairo (1.12.8)
       pkg-config
     diff-lcs (1.2.5)
-    gdk_pixbuf2 (2.0.2)
-      glib2 (= 2.0.2)
-    glib2 (2.0.2)
+    gdk3 (2.2.0)
+      gdk_pixbuf2 (= 2.2.0)
+      pango (= 2.2.0)
+    gdk_pixbuf2 (2.2.0)
+      glib2 (= 2.2.0)
+    gio2 (2.2.0)
+      glib2 (= 2.2.0)
+      gobject-introspection (= 2.2.0)
+    glib2 (2.2.0)
       pkg-config
-    gtk2 (2.0.2)
-      atk (= 2.0.2)
-      gdk_pixbuf2 (= 2.0.2)
-      pango (= 2.0.2)
+    gobject-introspection (2.2.0)
+      glib2 (= 2.2.0)
+    gtk3 (2.2.0)
+      atk (= 2.2.0)
+      gdk3 (= 2.2.0)
+      gdk_pixbuf2 (= 2.2.0)
+      gio2 (= 2.2.0)
+      glib2 (= 2.2.0)
+      pango (= 2.2.0)
     nasty (0.0.1386739849)
-    pango (2.0.2)
+    pango (2.2.0)
       cairo (>= 1.12.5)
-      glib2 (= 2.0.2)
-    pkg-config (1.1.4)
+      glib2 (= 2.2.0)
+    pkg-config (1.1.5)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -33,7 +44,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  gtk2
+  gtk3
   nasty
   rspec
   spank
