@@ -8,7 +8,6 @@ class ApplicationController
     view = presenter.view
     view.builder = create_builder_for(presenter_key.to_s)
     view.bind_to(presenter)
-    view.builder.connect_signals { |signal| Proc.new { presenter.public_send(signal) } }
     presenter.present
   end
 

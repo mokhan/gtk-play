@@ -11,7 +11,25 @@ class ApplicationShellPresenter
     @view.show_all
   end
 
+  def backspace
+  end
+
+  def changed(text)
+    return if @updating
+    update do
+      @view.display(text.reverse.upcase)
+    end
+  end
+
   def shutdown
     Publish.event(:halt)
+  end
+
+  private
+
+  def update
+    @updating = true
+    yield
+    @updating = false
   end
 end

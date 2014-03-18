@@ -34,6 +34,19 @@
                 <property name="can_focus">True</property>
                 <property name="left_margin">2</property>
                 <property name="right_margin">2</property>
+                <signal name="backspace" handler="backspace" swapped="no"/>
+                <signal name="copy-clipboard" handler="copy-clipboard" swapped="no"/>
+                <signal name="cut-clipboard" handler="cut-clipboard" swapped="no"/>
+                <signal name="delete-from-cursor" handler="delete-from-cursor" swapped="no"/>
+                <signal name="insert-at-cursor" handler="insert-at-cursor" swapped="no"/>
+                <signal name="move-cursor" handler="move-cursor" swapped="no"/>
+                <signal name="paste-clipboard" handler="paste-clipboard" swapped="no"/>
+                <signal name="populate-popup" handler="populate-popup" swapped="no"/>
+                <signal name="preedit-changed" handler="preedit-changed" swapped="no"/>
+                <signal name="select-all" handler="select-all" swapped="no"/>
+                <signal name="set-anchor" handler="set-anchor" swapped="no"/>
+                <signal name="toggle-cursor-visible" handler="toggle-cursor-visible" swapped="no"/>
+                <signal name="toggle-overwrite" handler="toggle-overwrite" swapped="no"/>
               </object>
             </child>
           </object>

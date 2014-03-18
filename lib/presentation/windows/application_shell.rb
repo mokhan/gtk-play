@@ -18,6 +18,17 @@ class ApplicationShell
     @presenter = presenter
     @window = builder.get_object('window')
     @menu_bar = builder.get_object('menubar')
+    @text_view = builder.get_object('text_view')
+    builder.connect_signals do |signal|
+      Proc.new { presenter.public_send(signal) }
+    end
+    @text_view.buffer.signal_connect("changed") do |buffer|
+      @presenter.changed(buffer.text)
+    end
     Build.menu_bar.with(File.menu(@event_aggregator)).add_to(self)
+  end
+
+  def display(text)
+    @text_view.buffer.set_text(text)
   end
 end
