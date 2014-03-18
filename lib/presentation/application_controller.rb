@@ -17,6 +17,7 @@ class ApplicationController
   def create_builder_for(presenter_key)
     builder = Gtk::Builder.new
     file = File.join(File.dirname(__FILE__), 'windows', "#{presenter_key.gsub(/\_presenter/, '')}.xml")
+    puts "LOADING #{presenter_key} FROM #{file}"
     builder.add_from_file(file)
     builder
   end
