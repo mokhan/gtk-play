@@ -1,9 +1,10 @@
 class ApplicationShellPresenter
   attr_reader :view
 
-  def initialize(shell, event_aggregator)
+  def initialize(shell, event_aggregator, stock_service)
     @view = shell
     @event_aggregator = event_aggregator
+    @stock_service = stock_service
   end
 
   def present
@@ -17,7 +18,9 @@ class ApplicationShellPresenter
   def changed(text)
     return if @updating
     update do
-      @view.display(text.reverse.upcase)
+      @view.display("...")
+      stock = @stock_service.fetch("ARX.TO")
+      @view.display(stock.to_s)
     end
   end
 
