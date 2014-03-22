@@ -25,7 +25,7 @@ class ShellView
     builder.connect_signals do |signal|
       proc { presenter.public_send(signal) }
     end
-    Build.menu_bar.with(File.menu(@event_aggregator)).add_to(self)
+    Build.menu_bar.with(File.menu(@event_aggregator)).add_to(@menu_bar)
     @window.fullscreen
   end
 

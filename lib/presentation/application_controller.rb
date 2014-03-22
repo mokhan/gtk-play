@@ -1,14 +1,14 @@
 class ApplicationController
-  def initialize(container)
-    @container = container
+  def initialize(presenter_factory)
+    @presenter_factory = presenter_factory
   end
 
   def run(presenter_key)
-    presenter = @container.resolve(presenter_key)
-    view = presenter.view
-    view.builder = create_builder_for(presenter_key.to_s)
-    view.bind_to(presenter)
-    presenter.present
+    #presenter = @container.resolve(presenter_key)
+    #view = presenter.view
+    #view.builder = create_builder_for(presenter_key.to_s)
+    #view.bind_to(presenter)
+    @presenter_factory.create(presenter_key).present
   end
 
   private

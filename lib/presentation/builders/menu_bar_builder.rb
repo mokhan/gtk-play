@@ -8,12 +8,9 @@ class MenuBarBuilder
     self
   end
 
-  def add_to(view)
-    #menu_bar = Create.menu_bar
-    menu_bar = view.menu_bar
+  def add_to(menu_bar)
     @menus.each do |menu|
       menu_bar.append(menu)
     end
-    #view.add(Create.vertical_box(menu_bar))
   end
 end
