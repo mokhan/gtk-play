@@ -1,9 +1,8 @@
 require 'presenter'
 
 class ShellPresenter < Presenter
-  def initialize(shell_view, event_aggregator, stock_service)
+  def initialize(shell_view, stock_service)
     @view = shell_view
-    @event_aggregator = event_aggregator
     @stock_service = stock_service
   end
 
