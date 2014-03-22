@@ -12,7 +12,7 @@ class Application
     Gtk.init
 
     container = Spank::Container.new
-    ContainerConfiguration.then(EventsRegistration).run(container)
+    ContainerConfiguration.then(EventsRegistration).then(LoadModules).run(container)
     container.resolve(:application_controller).run(:shell_presenter)
     Gtk.main
   end
