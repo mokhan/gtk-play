@@ -1,5 +1,5 @@
 class ApplicationShell
-  attr_reader :window, :menu_bar
+  attr_reader :window, :menu_bar, :textbox
   attr_accessor :builder
 
   def initialize(event_aggregator)
@@ -18,17 +18,18 @@ class ApplicationShell
     @presenter = presenter
     @window = builder.get_object('window')
     @menu_bar = builder.get_object('menubar')
-    @text_view = builder.get_object('text_view')
+    @textbox = builder.get_object('symbol_textbox')
+    @submit_button = builder.get_object('submit_button')
+    @output_view = builder.get_object('output_textarea')
+    @status_bar = builder.get_object('statusbar')
     builder.connect_signals do |signal|
-      Proc.new { presenter.public_send(signal) }
-    end
-    @text_view.buffer.signal_connect("changed") do |buffer|
-      @presenter.changed(buffer.text)
+      proc { presenter.public_send(signal) }
     end
     Build.menu_bar.with(File.menu(@event_aggregator)).add_to(self)
+    @window.fullscreen
   end
 
   def display(text)
-    @text_view.buffer.set_text(text)
+    @output_view.buffer.set_text(text)
   end
 end

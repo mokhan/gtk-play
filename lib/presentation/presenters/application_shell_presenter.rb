@@ -12,16 +12,9 @@ class ApplicationShellPresenter
     @view.show_all
   end
 
-  def backspace
-  end
-
-  def changed(text)
-    return if @updating
-    update do
-      @view.display("...")
-      stock = @stock_service.fetch("ARX.TO")
-      @view.display(stock.to_s)
-    end
+  def clicked
+    stock = @stock_service.fetch(@view.textbox.text)
+    @view.display(stock.to_s)
   end
 
   def shutdown
