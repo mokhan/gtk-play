@@ -1,5 +1,5 @@
 class EventAggregator
-  def initialize(subscribers = {})
+  def initialize(subscribers = Hash.new([]))
     @subscribers = subscribers
   end
 
