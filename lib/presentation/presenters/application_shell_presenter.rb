@@ -1,6 +1,6 @@
-class ApplicationShellPresenter
-  attr_reader :view
+require 'presenter'
 
+class ApplicationShellPresenter < Presenter
   def initialize(shell, event_aggregator, stock_service)
     @view = shell
     @event_aggregator = event_aggregator
@@ -19,13 +19,5 @@ class ApplicationShellPresenter
 
   def shutdown
     Publish.event(:halt)
-  end
-
-  private
-
-  def update
-    @updating = true
-    yield
-    @updating = false
   end
 end
