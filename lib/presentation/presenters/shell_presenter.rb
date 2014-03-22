@@ -1,6 +1,6 @@
 require 'presenter'
 
-class ApplicationShellPresenter < Presenter
+class ShellPresenter < Presenter
   def initialize(shell, event_aggregator, stock_service)
     @view = shell
     @event_aggregator = event_aggregator

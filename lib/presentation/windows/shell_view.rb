@@ -1,4 +1,4 @@
-class ApplicationShell
+class ShellView
   attr_reader :window, :menu_bar, :textbox
   attr_accessor :builder
 
