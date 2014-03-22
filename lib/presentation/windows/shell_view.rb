@@ -21,9 +21,6 @@ class ShellView
   end
 
   def bind_to(presenter)
-    @builder.connect_signals do |signal|
-      proc { presenter.public_send(signal) }
-    end
   end
 
   def display(text)

@@ -20,6 +20,7 @@ class ContainerConfiguration
     container.register(:application_controller) { |x| x.build(ApplicationController) }.as_singleton
     container.register(:presenter_factory) { |x| x.build(PresenterFactory) }.as_singleton
     container.register(:stock_service) { |x| StockService.new }.as_singleton
+    container.register(:stock_query) { |x| x.build(StockQuery) }
     Spank::IOC.bind_to(container)
   end
 end

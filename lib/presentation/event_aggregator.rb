@@ -18,6 +18,6 @@ class EventAggregator
   private
 
   def subscribers_for(event)
-    @subscribers[event]
+    @subscribers[event.to_sym]
   end
 end
